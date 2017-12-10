@@ -8,8 +8,14 @@
     <h2>Settings</h2>
   </div>
   <div class="col-md-12">
-    <button class="btn btn-secondary">Update Email / Password</button>
+    <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
   </div>
+  <div class="col-md-12">
+    <button class="btn btn-secondary" (click)="resetPassword()">Change Password</button>
+  </div>
+  <!-- <div class="col-md-12">
+    <button class="btn btn-secondary">Change Email</button>
+  </div> -->
 </div>
 <!-- End Settings Tab -->
 

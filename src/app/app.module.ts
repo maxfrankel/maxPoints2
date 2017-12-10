@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import {firebaseConfig} from "../environments/firebase.config";
@@ -69,7 +71,8 @@ import {AngularFireAuthModule} from "angularfire2/auth";
       AngularFireAuthModule,
       RouterModule.forRoot(routerConfig),
       ReactiveFormsModule,
-      HttpModule
+      HttpModule,
+      NgbModule.forRoot()
   ],
   providers: [LessonsService, CoursesService, LessonResolver, AuthService, AuthGuard, FirbaseService],
   bootstrap: [AppComponent]

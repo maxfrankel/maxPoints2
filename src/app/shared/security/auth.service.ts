@@ -1,30 +1,36 @@
 import { Injectable } from '@angular/core';
-import {Observable, Subject, BehaviorSubject} from "rxjs/Rx";
-import {AngularFireAuth } from "angularfire2/auth";
-import {AuthInfo} from "./auth-info";
-import {Router} from "@angular/router";
+import { Observable, Subject, BehaviorSubject } from "rxjs/Rx";
+import { AngularFireAuth } from "angularfire2/auth";
+import { AuthInfo } from "./auth-info";
+import { Router } from "@angular/router";
 import * as firebase from 'firebase/app';
 
 
 @Injectable()
 export class AuthService {
 
-  static UNKNOWN_USER = new AuthInfo(null);
+    static UNKNOWN_USER = new AuthInfo(null);
 
-  authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
-
-
-  constructor(private afAuth: AngularFireAuth, private router:Router) {
-
-  }
+    authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
 
 
+    constructor(private afAuth: AngularFireAuth, private router: Router) {
+
+    }
 
 
-    login(email, password):Observable<AuthInfo> {
+
+
+    login(email, password): Observable<AuthInfo> {
         return this.fromFirebaseAuthPromise(this.afAuth.auth.signInWithEmailAndPassword(email, password));
     }
 
+    resetPassword(email: string) {
+        var auth = firebase.auth();
+        return auth.sendPasswordResetEmail(email)
+            .then(() => console.log("email sent"))
+            .catch((error) => console.log(error))
+    }
 
     signUp(email, password) {
         return this.fromFirebaseAuthPromise(this.afAuth.auth.createUserWithEmailAndPassword(email, password));
@@ -37,22 +43,22 @@ export class AuthService {
      *
      * */
 
-    fromFirebaseAuthPromise(promise):Observable<any> {
+    fromFirebaseAuthPromise(promise): Observable<any> {
 
         const subject = new Subject<any>();
 
         promise
             .then(res => {
-                    const authInfo = new AuthInfo(this.afAuth.auth.currentUser.uid);
-                    this.authInfo$.next(authInfo);
-                    subject.next(res);
-                    subject.complete();
-                },
-                err => {
-                    this.authInfo$.error(err);
-                    subject.error(err);
-                    subject.complete();
-                });
+                const authInfo = new AuthInfo(this.afAuth.auth.currentUser.uid);
+                this.authInfo$.next(authInfo);
+                subject.next(res);
+                subject.complete();
+            },
+            err => {
+                this.authInfo$.error(err);
+                subject.error(err);
+                subject.complete();
+            });
 
         return subject.asObservable();
     }

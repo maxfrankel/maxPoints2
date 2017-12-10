@@ -23,6 +23,7 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.7",
     "@types/lodash": "^4.14.36",
     "@types/request": "0.0.30",
     "angularfire2": "^4.0.0-rc.0",
