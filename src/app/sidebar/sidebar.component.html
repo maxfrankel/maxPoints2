@@ -1,0 +1,44 @@
+<!-- Sidebar Navigation -->
+<div class="row">
+    <div class="nav-side-menu">
+        <div class="brand">
+            <img src="http://res.cloudinary.com/maxpoints/image/upload/v1512766828/maxpointslogo_b7zljz.png" alt="Max Points" style="max-height: 120px; padding: 20px;">
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list col-xs-12">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li (click)="changeView('travelReport')">
+                    <a>
+                        <!-- <i class="fa fa-plane fa-lg"></i>  -->
+                        Travel Report
+                    </a>
+                </li>
+                <li (click)="changeView('redeem')">
+                    <a>
+                        <!-- <i class="fa fa-dashboard fa-lg"></i>  -->
+                        Redeem
+                    </a>
+                </li>
+                <li (click)="changeView('spendingReport')">
+                    <a>
+                        <!-- <i class="fa fa-money fa-lg"></i>  -->
+                        Spending Report
+                    </a>
+                </li>
+                <li (click)="changeView('settings')">
+                    <a>
+                        <!-- <i class="fa fa-gear fa-lg"></i>  -->
+                        Settings
+                    </a>
+                </li>
+                <li (click)="changeView('logout')">
+                    <a>
+                        <!-- <i class="fa fa-gear fa-lg"></i> -->
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Sidebar Navigation -->
