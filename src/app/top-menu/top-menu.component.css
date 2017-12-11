@@ -5,11 +5,12 @@
 }
 
 header {
-    height:55px;
+    height:65px;
 }
 
 .l-header{
-    padding: 0px !important;    
+    padding: 0px !important;  
+    background: #0d47a1;  
 }
 
 .v-center{

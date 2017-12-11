@@ -14,25 +14,27 @@ export class HomeComponent implements OnInit {
 
   userStates: any;
   url: any;
-  // userStates: object = {
-  //   callUsed: false,
-  //   report: "https://docs.google.com/gview?url=http://res.cloudinary.com/maxpoints/image/upload/v1512599775/bill_of_lading_delivery_wbjvu4.pdf&embedded=true",
-  //   reportCreated: true 
-  // }
+  // subscription = [];
+
   
 
   constructor(private authService:AuthService, private router:Router, private fbService: FirbaseService, private sanitizer: DomSanitizer) {
     this.userStates = this.fbService.userStates;
+    this.url = this.photoUrl();
+    // this.subscription[0] = 
     // this.fbService.userState$.subscribe(x => {
     //   console.log('xxxxxxxxxxxxxxxxxxx', x);
     //   this.userStates = x;
     // });
-    this.url = this.photoUrl();
   }
   
   ngOnInit() {
     
   }
+
+  // ngOnDestroy() {
+  //   this.subscription.map(x => x.unsubscribe());
+  // }
   
   photoUrl() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.userStates.report);

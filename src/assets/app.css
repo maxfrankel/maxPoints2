@@ -172,6 +172,9 @@ form.ng-touched.ng-invalid {
 
 .l-header img {
     cursor: pointer;
+    height: 55px !important;
+    margin-top: 5px !important;
+
 }
 
 .youtube-logo {
@@ -234,7 +237,6 @@ ul.top-menu > li > a.menu-active {
     margin-right: 50px;
 }
 
-
 .nav-fields {
     margin-bottom: 40px;
 }
@@ -287,9 +289,9 @@ img.dashboard-section  {
     margin-top: 30px;
 }
 
-.login-form {
+/* .login-form {
     width: 350px;
-}
+} */
 
 .search-bar {
     margin-bottom: 30px;

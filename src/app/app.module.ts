@@ -17,22 +17,12 @@ import { SettingsComponent } from './settings/settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RedeemComponent } from './redeem/redeem.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import {LessonsService} from "./shared/model/lessons.service";
-import { LessonsListComponent } from './lessons-list/lessons-list.component';
 import {RouterModule} from "@angular/router";
 import {routerConfig} from "./router.config";
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
-import { CoursesComponent } from './courses/courses.component';
-import {CoursesService} from "./shared/model/courses.service";
-import { CourseDetailComponent } from './course-detail/course-detail.component';
-import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 import { SafeUrlPipe } from './shared/security/safe-url.pipe';
 import {ReactiveFormsModule} from "@angular/forms";
-import { NewLessonComponent } from './new-lesson/new-lesson.component';
-import { LessonFormComponent } from './lesson-form/lesson-form.component';
-import { EditLessonComponent } from './edit-lesson/edit-lesson.component';
-import {LessonResolver} from "./shared/model/lesson.resolver";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {AuthService} from "./shared/security/auth.service";
@@ -46,15 +36,8 @@ import {AngularFireAuthModule} from "angularfire2/auth";
   declarations: [
     AppComponent,
     HomeComponent,
-    LessonsListComponent,
     TopMenuComponent,
-    CoursesComponent,
-    CourseDetailComponent,
-    LessonDetailComponent,
     SafeUrlPipe,
-    NewLessonComponent,
-    LessonFormComponent,
-    EditLessonComponent,
     LoginComponent,
     RegisterComponent,
     SidebarComponent,
@@ -74,7 +57,7 @@ import {AngularFireAuthModule} from "angularfire2/auth";
       HttpModule,
       NgbModule.forRoot()
   ],
-  providers: [LessonsService, CoursesService, LessonResolver, AuthService, AuthGuard, FirbaseService],
+  providers: [AuthService, AuthGuard, FirbaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

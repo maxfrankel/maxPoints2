@@ -4,9 +4,6 @@ import { FirbaseService } from 'app/shared/services/firebase.service';
 
 import {Router} from "@angular/router";
 
-import {LessonsService} from "../shared/model/lessons.service";
-import {Lesson} from "../shared/model/lesson";
-
 @Component({
   selector: 'spending-report',
   templateUrl: './spending-report.component.html',
@@ -14,14 +11,18 @@ import {Lesson} from "../shared/model/lesson";
 })
 export class SpendingReportComponent implements OnInit {
   userStates: any;
+  subscription = []; 
+  
   
 
   constructor(private authService:AuthService, private router:Router, private fbService: FirbaseService) {
-    this.userStates = this.fbService.userStates;    
+    this.userStates = this.fbService.userStates;  
   }
 
   ngOnInit() {
 
   }
+
+
 
 }

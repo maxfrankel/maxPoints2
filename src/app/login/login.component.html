@@ -2,15 +2,19 @@
 
 <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
 
-    <fieldset>
-        <legend>Login</legend>
-        <div class="form-field">
-            <label>Email:</label>
-            <input name="email" formControlName="email">
-        </div>
-        <div class="form-field">
-            <label>Password:</label>
-            <input name="password" formControlName="password" type="password">
+    <fieldset class="loginBox">
+        <div class="row">
+            <div class="col-md-12 text-center" style="margin-bottom:30px;">
+                <legend>Login</legend>
+            </div>
+            <div class="col-md-12 form-field text-center">
+                <label>Email:</label>
+                <input name="email" formControlName="email">
+            </div>
+            <div class="col-md-12 form-field text-center">
+                <label>Password:</label>
+                <input name="password" formControlName="password" type="password">
+            </div>
         </div>
     </fieldset>
 

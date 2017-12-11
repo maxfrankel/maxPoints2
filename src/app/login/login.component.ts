@@ -32,13 +32,12 @@ export class LoginComponent implements OnInit {
 
       const formValue = this.form.value;
 
-    //   this.authService.login(formValue.email, formValue.password)
-      this.authService.login("test@test.com", "123456")
+      this.authService.login(formValue.email, formValue.password)
           .subscribe(
-
               (u: any) => {
                   console.log('0a', u.uid);
                   this.fbService.getUserState(u.uid)
+                  // this.router.navigate(['/dashboard']);                  
                 }
             
           );

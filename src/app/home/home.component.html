@@ -3,20 +3,20 @@
 <!-- Main Content -->
 
 <!-- Start Travel Report Tab -->
-<div class="container" id="main">
-  <div class="col-md-12" *ngIf="!userStates.reportCreated">
+<div class="container main">
+  <div class="col-md-12" *ngIf="!userStates?.reportCreated">
     <iframe src="https://maxpoints.typeform.com/to/ut6YzL" style="width:100%;height:85vh;" frameborder="0"></iframe>
   </div>
-  <div class="col-md-12 text-center" *ngIf="userStates.reportCreated">
+  <div class="col-md-12 text-center" *ngIf="userStates?.reportCreated">
     <h2>Your Personal Travel Report</h2>
   </div>
-  <div class="col-md-12" *ngIf="userStates.reportCreated">
+  <div class="col-md-12" *ngIf="userStates?.reportCreated">
     <!-- Using the Google Docs PDF viewer iFrame below. Will need to use logic to change the URL to the correct PDF stored in the database -->
-    <iframe [src]="url" style="width:100%;height:85vh;" frameborder="0"></iframe>
+    <iframe [src]="url" style="width:100%;height:80vh;" frameborder="0"></iframe>
 
   </div>
   <!-- Only show this if the user has not used their one-time phone call already -->
-  <div class="col-md-12 text-center" *ngIf="!userStates.callUsed">
+  <div class="col-md-12 text-center" *ngIf="!userStates?.callUsed">
     <h4>Schedule Your One-Time Phone Consultation</h4>
     <a class="btn btn-primary" href="http://calendly.com/maxpoints/max">Schedule Now</a>
   </div>

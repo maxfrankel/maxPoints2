@@ -6,8 +6,6 @@ import {Subject} from 'rxjs/Subject';
 import {debounceTime} from 'rxjs/operator/debounceTime';
 
 
-import {LessonsService} from "../shared/model/lessons.service";
-import {Lesson} from "../shared/model/lesson";
 import { fail } from 'assert';
 
 @Component({
@@ -37,7 +35,7 @@ export class SettingsComponent implements OnInit {
 
   resetPassword(email: string) {
     this.authService.resetPassword(this.email);
-    this._successReset.next(`Success! Please check your e-mail for next steps.`);
+    this._successReset.next('Success! Please check your e-mail, ' + this.email + ', for next steps.');
   }
 
 }
