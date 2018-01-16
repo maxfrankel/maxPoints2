@@ -18,7 +18,7 @@ export class FirbaseService {
             (success) => {
                 this.userStates = success.val();
                 // this.userState$.next(success.val());
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/dashboard/travel-report']);
             });
     }
  

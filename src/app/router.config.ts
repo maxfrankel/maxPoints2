@@ -23,10 +23,6 @@ export const routerConfig : Route[] = [
         ],
         children: [
             {
-                path:'',
-                component: HomeComponent
-            },
-            {
                 path:'travel-report',
                 component: HomeComponent
             },
