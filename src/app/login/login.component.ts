@@ -13,13 +13,16 @@ export class LoginComponent implements OnInit {
 
   form:FormGroup;
 
-  constructor(private fb:FormBuilder, private authService: AuthService, private fbService: FirbaseService,
-                private router:Router) {
-
+  constructor(
+        private fb:FormBuilder, 
+        private authService: AuthService, 
+        private fbService: FirbaseService,
+        private router:Router
+    ) {
       this.form = this.fb.group({
           email: ['',Validators.required],
           password: ['',Validators.required]
-      });
+    });
 
 
   }

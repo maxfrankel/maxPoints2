@@ -18,7 +18,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('2a');
     // this.fbService.userState$.subscribe(x => {
     //   console.log('xxxxxxxxxxxxxxxxxxx', x);
     //   this.userState = x;

@@ -50,7 +50,7 @@ export const routerConfig : Route[] = [
         ]
     },
     {
-        'path': 'login',
+        path: 'login',
         component: LoginComponent
     },
     {
