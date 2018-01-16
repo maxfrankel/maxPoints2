@@ -2,13 +2,13 @@
 
 <!-- Main Content -->
 
-<!-- Start Travel Report Tab -->
+<!-- Start Your Action Plan Tab -->
 <div class="container main">
   <div class="col-md-12" *ngIf="!userStates?.reportCreated">
     <iframe src="https://maxpoints.typeform.com/to/ut6YzL" style="width:100%;height:85vh;" frameborder="0"></iframe>
   </div>
   <div class="col-md-12 text-center" *ngIf="userStates?.reportCreated">
-    <h2>Your Personal Travel Report</h2>
+    <h2>Your Action Plan</h2>
   </div>
   <div class="col-md-12" *ngIf="userStates?.reportCreated">
     <!-- Using the Google Docs PDF viewer iFrame below. Will need to use logic to change the URL to the correct PDF stored in the database -->
@@ -21,7 +21,7 @@
     <a class="btn btn-primary" href="https://calendly.com/maxpoints/max">Schedule Now</a>
   </div>
 </div>
-<!-- End Travel Report Tab -->
+<!-- End Your Action Plan Tab -->
 
 <!-- End Main Content -->
 
