@@ -29,12 +29,16 @@ export class HomeComponent implements OnInit {
   }
   
   ngOnInit() {
-    
+    this.url = this.photoUrl();
   }
 
   // ngOnDestroy() {
   //   this.subscription.map(x => x.unsubscribe());
   // }
+  gotoCalendly() {
+    window.open("https://calendly.com/maxpoints/max", "_blank");
+    // window.location.href='https://calendly.com/maxpoints/max';
+  }
   
   photoUrl() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.userStates.report);

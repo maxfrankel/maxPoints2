@@ -1,0 +1,10 @@
+h2 {
+    margin: 20px;
+}
+#bookTravel {
+    display: inline-block;
+    width: 800px;
+    height: 600px;
+    margin: 20px 60px 60px 60px;
+}
+

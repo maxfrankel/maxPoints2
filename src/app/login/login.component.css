@@ -1,4 +1,61 @@
-.loginBox{
+/* .loginBox{
     border: none !important;
     margin-top: 20vh;
+} */
+
+.pageContent {
+    background: url('/../assets/images/loginBackground.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    /* width: 100%; */
+}
+
+.card {
+    border: none;
+    max-width: 500px;
+}
+.card-header {
+    min-height: 100px;
+    background: #343a40;
+    text-align: center;
+}
+.card-body {
+    width: max-content;
+    margin: auto;
+}
+
+.maxLogo {
+    margin: auto;
+    max-width: 20%;
+    padding-top: 10px;
+}
+
+.form-check-label {
+    width: auto;
+}
+
+.formErrorMessage {
+    color: red;
+    margin-top: 10px;
+}
+
+.buttonContainer .btn {
+    background: #0097ec;
+    color: white;
+}
+.card-footer {
+    background: #343a40;
+}
+.card-footer .forgotPassword {
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+#footer1 {
+    display: inline;
 }

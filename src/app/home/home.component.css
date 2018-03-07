@@ -1,3 +1,20 @@
 .main{
     overflow-y: scroll;
 }
+h2 {
+    margin: 20px;
+}
+
+.btn {
+    /* background-color: green;
+    border-color: green; */
+    background-color: #0097ec;
+    border-color: #0097ec;
+    
+    
+}
+
+/* .btn:hover {
+    background-color: #0d7cb2;
+    border-color: #0d7cb2;
+} */

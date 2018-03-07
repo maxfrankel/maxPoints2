@@ -4,21 +4,18 @@
 
 <!-- Start Your Action Plan Tab -->
 <div class="container main">
-  <div class="col-md-12" *ngIf="!userStates?.reportCreated">
-    <iframe src="https://maxpoints.typeform.com/to/ut6YzL" style="width:100%;height:85vh;" frameborder="0"></iframe>
+  <div class="col-md-12 text-center" *ngIf="userStates?.reportCreated && !userStates?.callUsed">
+    <h2>Schedule Your One-Time Phone Consultation</h2>
+    <button type="button" class="btn btn-primary btn-lg" (click)="gotoCalendly()" target="_blank">Schedule Now</button>
+  <hr/>
   </div>
-  <div class="col-md-12 text-center" *ngIf="userStates?.reportCreated">
-    <h2>Your Action Plan</h2>
+  <div class="col-md-12 text-center" *ngIf="!userStates?.reportCreated">
+    <h2>Your Rewards Goals</h2>
+    <iframe src="https://maxpoints.typeform.com/to/ut6YzL" style="width:100%;height:85vh;" frameborder="0"></iframe>
   </div>
   <div class="col-md-12" *ngIf="userStates?.reportCreated">
     <!-- Using the Google Docs PDF viewer iFrame below. Will need to use logic to change the URL to the correct PDF stored in the database -->
     <iframe [src]="url" style="width:100%;height:80vh;" frameborder="0"></iframe>
-
-  </div>
-  <!-- Only show this if the user has not used their one-time phone call already -->
-  <div class="col-md-12 text-center" *ngIf="!userStates?.callUsed">
-    <h4>Schedule Your One-Time Phone Consultation</h4>
-    <a class="btn btn-primary" href="https://calendly.com/maxpoints/max">Schedule Now</a>
   </div>
 </div>
 <!-- End Your Action Plan Tab -->

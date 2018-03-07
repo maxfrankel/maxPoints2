@@ -1,4 +1,58 @@
-<top-menu></top-menu>
+<div class="pageContent container-fluid">
+    <form class="login-form" [formGroup]="form">
+
+        <div class="card">
+            <div class="card-header">
+                <img class="maxLogo" src="\assets\images\maxPointsLogoNew.png" alt="Max Points Logo">
+            </div>
+            <div class="card-body" *ngIf='!resetEmailSent && !resetPasswordClicked'>
+                <h5 class="card-title">Log in to your Max Points account</h5>
+                <div class="form-group text-center">
+                    <input class="form-control" name="email" placeholder="Email" formControlName="email">
+                </div>
+                <div class="form-group text-center">
+                    <input class="form-control" name="password" placeholder="Password" formControlName="password" type="password">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" formControlName="terms" value='' class="form-check-input" id="invalidCheck2" required>
+                    <label class="form-check-label" for="invalidCheck2">I agree to the
+                        <a class="termsOfService" href="https://www.maxpoints.co/terms/" target="_blank">Terms and Conditions</a>
+                    </label>
+                    <div class="formErrorMessage text-center" *ngIf="formError"> 
+                        *All fields are required*
+                   </div> 
+                </div>
+                <div class="buttonContainer">
+                    <a class="btn btn-primary btn-block loginButton" (click)="login()">Login</a>
+                </div>
+            </div>
+            <div class="card-body" *ngIf='!resetEmailSent && resetPasswordClicked'>
+                <div class="form-group text-center">
+                    <input class="form-control" name="email" placeholder="Email" formControlName="email">
+                </div>
+                <div *ngIf='!resetEmailSent && resetPasswordClicked && error'>
+                    <p>Please input an email address</p>
+                </div>
+                <div class="buttonContainer">
+                    <a class="btn btn-primary btn-block" (click)="resetPassword()">Reset Password</a>
+                </div>
+            </div>
+            <div class="card-body" *ngIf='resetEmailSent'>
+                <p>Password reset email sent. Please check your email.</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <div class="footer1">
+                    <span class="forgotPassword" *ngIf='!resetEmailSent' (click)="showPasswordReset()">Forgot Password</span>
+                </div>
+                <div class="footer1">
+                    <span class="forgotPassword" type="link" href="mailto:max@maxpoints.co?Subject=Question%20about%20Max%20Points">Contact Us</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- <top-menu></top-menu>
 
 <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
 
@@ -20,4 +74,4 @@
 
     <button (click)="login()">Login</button>
 
-</form>
+</form> -->
