@@ -31,6 +31,15 @@ import {FirbaseService} from "./shared/services/firebase.service";
 import {HttpModule} from "@angular/http";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireAuthModule} from "angularfire2/auth";
+import {ngxZendeskWebwidgetModule, ngxZendeskWebwidgetConfig} from 'ngx-zendesk-webwidget';
+
+export class ZendeskConfig extends ngxZendeskWebwidgetConfig {
+  accountUrl = 'maxpoints.zendesk.com';
+  beforePageLoad(zE) {
+    zE.setLocale('en');
+    zE.hide();
+  }
+}
 
 @NgModule({
   declarations: [
@@ -55,11 +64,11 @@ import {AngularFireAuthModule} from "angularfire2/auth";
       RouterModule.forRoot(routerConfig),
       ReactiveFormsModule,
       HttpModule,
-      NgbModule.forRoot()
+      NgbModule.forRoot(),
+      ngxZendeskWebwidgetModule.forRoot(ZendeskConfig)
   ],
   providers: [AuthService, AuthGuard, FirbaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
 

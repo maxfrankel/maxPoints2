@@ -3,6 +3,7 @@ import {Validators, FormGroup, FormBuilder} from "@angular/forms";
 import {AuthService} from "../shared/security/auth.service";
 import {FirbaseService} from "../shared/services/firebase.service";
 import {Router} from "@angular/router";
+import { ngxZendeskWebwidgetService } from 'ngx-zendesk-webwidget';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
         private fb:FormBuilder, 
         private authService: AuthService, 
         private fbService: FirbaseService,
-        private router:Router
+        private router:Router,
+        private _ngxZendeskWebwidgetService: ngxZendeskWebwidgetService
     ) {
       this.form = this.fb.group({
           email: ['',Validators.required],
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
           terms: ['', Validators.required]
     });
 
-
+    this._ngxZendeskWebwidgetService.show();
   }
 
   ngOnInit() {

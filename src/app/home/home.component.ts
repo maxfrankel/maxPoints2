@@ -16,8 +16,6 @@ export class HomeComponent implements OnInit {
   url: any;
   // subscription = [];
 
-  
-
   constructor(private authService:AuthService, private router:Router, private fbService: FirbaseService, private sanitizer: DomSanitizer) {
     this.userStates = this.fbService.userStates;
     this.url = this.photoUrl();
