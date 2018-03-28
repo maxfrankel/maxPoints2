@@ -1,7 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Directive, Input } from '@angular/core';
 import {AuthService} from "../shared/security/auth.service";
 import {AuthInfo} from "../shared/security/auth-info";
 import { Router } from '@angular/router';
+
+@Directive({
+    selector: '[ngbCollapse]',
+    exportAs: 'ngbCollapse',
+    host: {'[class.collapse]': 'true', '[class.show]': '!collapsed'}
+  })
+export class NgbCollapse {
+  /**
+   * A flag indicating collapsed (true) or open (false) state.
+   */
+  @Input('ngbCollapse') collapsed = false;
+}
 
 @Component({
   selector: 'sidebar',
@@ -11,6 +23,7 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
 
   authInfo: AuthInfo;
+  isNavbarCollapsed = true;
 
   constructor(private authService:AuthService, private router:Router) {
 

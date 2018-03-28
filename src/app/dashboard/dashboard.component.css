@@ -1,9 +1,160 @@
-body {
-    margin: 0px;
-    padding: 0px;
-}
-.wrapper {
-    display: flex;
-    /* align-items: stretch; */
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+ body {
+    overflow-x: hidden;
+  }
+
+  img {
+      max-height: 120px;
+      padding: 20px;
+  }
+  
+  #wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  #wrapper.toggled {
+    padding-left: 250px;
+  }
+  
+  #sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #e4e5e7;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+  }
+  
+  #page-content-wrapper {
     width: 100%;
-}
+    position: absolute;
+    padding: 15px;
+  }
+  
+  #wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+  
+  
+  /* Sidebar Styles */
+  
+  .sidebar-nav {
+    position: absolute;
+    top: 125px;
+    width: 250px;
+    margin: 0;
+    padding: 0px 0px 0px 5px;
+    list-style: none;
+  }
+
+  .sidebar-brand {
+    height: 65px;
+    line-height: 60px;
+    display: block;
+    text-align: center;
+  }
+  
+  .sidebar-nav li {
+    list-style: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    margin: 0px;
+    line-height: 35px;
+    cursor: pointer;
+    /* border-left: 3px solid #2e353d; */
+    border-top: 1px solid 	#D3D3D3;
+    border-bottom: 1px solid 	#D3D3D3;
+  }
+  
+  .sidebar-nav li a {
+    display: block;
+    font-family: verdana;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    color: #6a6c6f;
+  }
+
+  .sidebar-nav li:hover {
+    border-left: 3px solid #35a7ff;
+    background-color: #fff;
+    /* -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease; */
+  }
+  
+  .sidebar-nav li a:hover {
+    color: #35a7ff;
+    text-decoration: none;
+  }
+  
+  .sidebar-nav li .active {
+    border-left: 3px solid #35a7ff;
+    background-color: transparent;
+  }
+  /* .sidebar-nav li a:active, .sidebar-nav li a:focus {
+    text-decoration: none;
+    color: #35a7ff;
+  } */
+  
+  .sidebar-nav>.sidebar-brand {
+    height: 65px;
+    line-height: 60px;
+    display: block;
+    text-align: center;
+  }
+  
+  .sidebar-nav>.sidebar-brand a {
+    color: #999999;
+  }
+  
+  .sidebar-nav>.sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+  }
+  
+  @media(min-width:768px) {
+    #wrapper {
+      padding-left: 0;
+    }
+    #wrapper.toggled {
+      padding-left: 250px;
+    }
+    #sidebar-wrapper {
+      width: 0;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+      width: 250px;
+    }
+    #page-content-wrapper {
+      padding: 20px;
+      position: relative;
+    }
+    #wrapper.toggled #page-content-wrapper {
+      position: relative;
+      margin-right: 0;
+    }
+  }

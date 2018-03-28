@@ -1,18 +1,35 @@
-<!-- Start Dashboard HTML -->
-
-<!-- Main Content -->
-<header></header>
-<div class="row">
-    <div class="wrapper">
-        <div class="col-3 sidebar">
-            <sidebar></sidebar>
+<div id="wrapper" [ngClass]="{'toggled': isHidden }">
+    <div id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <img src="./assets/images/maxPointsLogoNew.png" alt="Max Points">
         </div>
-        <div class="col-9 content">
+        <ul class="sidebar-nav">
+            <li (click)="changeView('travelReport')">
+                <a>Your Action Plan</a>
+            </li>
+            <li (click)="changeView('redeem')">
+                <a>Travel Report</a>
+            </li>
+            <li (click)="changeView('settings')">
+                <a>Settings</a>
+            </li>
+            <li (click)="changeView('logout')">
+                <a>Logout</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <i class="material-icons" (click)="isHidden = !isHidden;">menu</i>
             <router-outlet></router-outlet>
         </div>
     </div>
+    <!-- /#page-content-wrapper -->
+
 </div>
-<footer></footer>
+
 
 
 
