@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^5.2.8",
     "@angular/router": "^5.2.8",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0",
+    "@typeform/embed": "^0.5.8",
     "@types/lodash": "^4.14.104",
     "@types/request": "0.0.30",
     "angularfire2": "^4.0.0-rc.0",

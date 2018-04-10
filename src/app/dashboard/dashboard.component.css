@@ -12,10 +12,6 @@
       max-height: 120px;
       padding: 20px;
   }
-
-  #mobileWrapper {
-    display: none;
-  }
   
   #wrapper {
     display: block;
@@ -141,28 +137,24 @@
     background: none;
   }
   
-  @media(min-width:750px) {
+  @media(max-width:600px) {
     #wrapper {
-      display: none;
-    }
-    #mobileWrapper {
-      display: block;
       padding-left: 0;
     }
-    #mobileWrapper.toggled {
+    #wrapper.toggled {
       padding-left: 250px;
     }
     #sidebar-wrapper {
       width: 0;
     }
-    #mobileWrapper.toggled #sidebar-wrapper {
+    #wrapper.toggled #sidebar-wrapper {
       width: 250px;
     }
     #page-content-wrapper {
       padding: 20px;
       position: relative;
     }
-    #mobileWrapper.toggled #page-content-wrapper {
+    #wrapper.toggled #page-content-wrapper {
       position: relative;
       margin-right: 0;
     }

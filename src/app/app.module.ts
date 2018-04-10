@@ -32,6 +32,7 @@ import {HttpModule} from "@angular/http";
 import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireAuthModule} from "angularfire2/auth";
 import {ngxZendeskWebwidgetModule, ngxZendeskWebwidgetConfig} from 'ngx-zendesk-webwidget';
+import {typeformEmbed} from '@typeform/embed';
 
 export class ZendeskConfig extends ngxZendeskWebwidgetConfig {
   accountUrl = 'maxpoints.zendesk.com';
