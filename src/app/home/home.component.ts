@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   userStates: any;
   url: any;
+  urlString: string;
   // subscription = [];
 
   constructor(private authService:AuthService, private router:Router, private fbService: FirbaseService, private sanitizer: DomSanitizer) {
@@ -28,6 +29,8 @@ export class HomeComponent implements OnInit {
   
   ngOnInit() {
     this.url = this.photoUrl();
+    this.urlString = this.userStates.report;
+    console.log(this.url)
   }
 
   // ngOnDestroy() {

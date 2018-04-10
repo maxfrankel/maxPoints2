@@ -14,11 +14,16 @@
     <iframe src="https://maxpoints.typeform.com/to/ut6YzL" style="width:100%;height:85vh;" frameborder="0"></iframe>
   </div>
   <div class="col-md-12" *ngIf="userStates?.reportCreated">
-    <!-- Using the Google Docs PDF viewer iFrame below. Will need to use logic to change the URL to the correct PDF stored in the database -->
-    <iframe [src]="url" style="width:100%;height:80vh;" frameborder="0"></iframe>
+    <div fxHide fxShow.gt-sm>
+      <iframe [src]="url" style="width:100%;height:80vh;" frameborder="0"></iframe>
+    </div>
+    <div fxShow fxHide.gt-sm>
+      <a class="btn btn-primary btn-block" href="{{urlString}}" target="_blank">View Your Report</a>
+    </div>
   </div>
 </div>
 <!-- End Your Action Plan Tab -->
+
 
 <!-- End Main Content -->
 
