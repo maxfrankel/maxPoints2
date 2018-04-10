@@ -7,10 +7,11 @@
   <div class="col-12 text-center">
     <h2>Book Travel</h2>
   </div>
-  <div class="col-12 typeformEmbed">
+  <!-- <div [ngClass.xs]="'first'" [ngClass.md]="'second'">TESTING CLASSES</div> -->
+  <div fxHide fxShow.gt-sm >
     <iframe id="bookTravel" src="https://maxpoints.typeform.com/to/ZNKYFf"></iframe>
   </div>
-  <div class="col-12 typeformButton">
+  <div fxShow fxHide.gt-sm>
       <a class="btn btn-primary btn-block" href="https://maxpoints.typeform.com/to/ZNKYFf" target="_blank">Complete Form</a>
   </div>
 </div>

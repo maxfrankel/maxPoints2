@@ -33,6 +33,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
 import {AngularFireAuthModule} from "angularfire2/auth";
 import {ngxZendeskWebwidgetModule, ngxZendeskWebwidgetConfig} from 'ngx-zendesk-webwidget';
 import {typeformEmbed} from '@typeform/embed';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 export class ZendeskConfig extends ngxZendeskWebwidgetConfig {
   accountUrl = 'maxpoints.zendesk.com';
@@ -66,7 +67,8 @@ export class ZendeskConfig extends ngxZendeskWebwidgetConfig {
       ReactiveFormsModule,
       HttpModule,
       NgbModule.forRoot(),
-      ngxZendeskWebwidgetModule.forRoot(ZendeskConfig)
+      ngxZendeskWebwidgetModule.forRoot(ZendeskConfig),
+      FlexLayoutModule
   ],
   providers: [AuthService, AuthGuard, FirbaseService],
   bootstrap: [AppComponent]

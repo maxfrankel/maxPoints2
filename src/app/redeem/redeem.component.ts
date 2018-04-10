@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../shared/security/auth.service";
 import {Router} from "@angular/router";
+import { ObservableMedia } from '@angular/flex-layout';
 
 @Component({
   selector: 'redeem',
@@ -9,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class RedeemComponent implements OnInit {
 
-  constructor(private authService:AuthService, private router:Router) {
+  constructor(private authService:AuthService, private router:Router, private observableMedia: ObservableMedia) {
 
 
   }
