@@ -120,6 +120,47 @@
     text-decoration: none;
     color: #35a7ff;
   } */
+
+  /* Code for dropdown within sidenav but requires jQUery */
+  /* .sidebar-nav ul :not(collapsed) .arrow:before,
+  .sidebar-nav li :not(collapsed) .arrow:before {
+    font-family: FontAwesome;
+    content: "\f078";
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+  .sidebar-nav ul .sub-menu li.active,
+  .sidebar-nav li .sub-menu li.active {
+    color: #d19b3d;
+  }
+  .sidebar-nav ul .sub-menu li.active a,
+  .sidebar-nav li .sub-menu li.active a {
+    color: #d19b3d;
+  }
+  .sidebar-nav ul .sub-menu li,
+  .sidebar-nav li .sub-menu li {
+    background-color: #181c20;
+    border: none;
+    line-height: 28px;
+    border-bottom: 1px solid #23282e;
+    margin-left: 0px;
+  }
+  .sidebar-nav ul .sub-menu li:hover,
+  .sidebar-nav li .sub-menu li:hover {
+    background-color: #020203;
+  }
+  .sidebar-nav ul .sub-menu li:before,
+  .sidebar-nav li .sub-menu li:before {
+    font-family: FontAwesome;
+    content: "\f105";
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: middle;
+  } */
+  /* End Code for dropdown within sidenav */
   
   .sidebar-nav>.sidebar-brand {
     height: 65px;
