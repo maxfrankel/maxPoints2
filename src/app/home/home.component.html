@@ -6,13 +6,23 @@
 <div class="container main">
 
   <div class="col-md-12 text-center" *ngIf="userStates?.reportCreated && !userStates?.callUsed">
-    <h2>Schedule Your One-Time Phone Consultation</h2>
+    <div fxHide fxShow.gt-sm>
+      <h2>Schedule Your One-Time Phone Consultation</h2>
+    </div>
+    <div fxShow fxHide.gt-sm>
+      <h4>Schedule Your One-Time Phone Consultation</h4>
+    </div>
     <button type="button" class="btn btn-primary btn-lg" (click)="gotoCalendly()" target="_blank">Schedule Now</button>
     <hr/>
   </div>
 
   <div class="col-md-12 text-center" *ngIf="!userStates?.reportCreated">
-    <h2>Your Rewards Goals</h2>
+    <div fxHide fxShow.gt-sm>
+      <h2>Your Rewards Goals</h2>
+    </div>
+    <div fxShow fxHide.gt-sm>
+      <h4>Your Rewards Goals</h4>
+    </div>
     <div fxHide fxShow.gt-sm>
       <iframe class="travelForm" src="https://maxpoints.typeform.com/to/ut6YzL" frameborder="0"></iframe>
     </div>
@@ -22,7 +32,12 @@
   </div>
 
   <div class="col-md-12 text-center" *ngIf="userStates?.reportCreated">
-    <h2>Your Action Plan</h2>
+    <div fxHide fxShow.gt-sm>
+      <h2>Your Action Plan</h2>
+    </div>
+    <div fxShow fxHide.gt-sm>
+      <h4>Your Action Plan</h4>
+    </div>
     <div fxHide fxShow.gt-sm>
       <iframe [src]="url" style="width:100%;height:80vh;" frameborder="0"></iframe>
     </div>

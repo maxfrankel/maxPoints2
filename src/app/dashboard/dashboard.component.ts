@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../shared/security/auth.service";
-import {AuthInfo} from "../shared/security/auth-info";
-import {Router} from "@angular/router";
+import { AuthService } from "../shared/security/auth.service";
+import { AuthInfo } from "../shared/security/auth-info";
+import { Router } from "@angular/router";
 import { FirbaseService } from 'app/shared/services/firebase.service';
 import { ngxZendeskWebwidgetService } from 'ngx-zendesk-webwidget';
-import {MediaChange, ObservableMedia} from '@angular/flex-layout';
+import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
 @Component({
   selector: 'dashboard',
@@ -13,50 +13,70 @@ import {MediaChange, ObservableMedia} from '@angular/flex-layout';
 })
 export class DashboardComponent implements OnInit {
 
-    userState: any;
-    email: '';
-    authInfo: AuthInfo;
+  userState: any;
+  email: '';
+  authInfo: AuthInfo;
+  isHidden: boolean = false;
 
-  constructor(private authService:AuthService, private router:Router, private fbService: FirbaseService, private _ngxZendeskWebwidgetService: ngxZendeskWebwidgetService, private media: ObservableMedia) {
+  constructor(private authService: AuthService, private router: Router, private fbService: FirbaseService, private _ngxZendeskWebwidgetService: ngxZendeskWebwidgetService, private media: ObservableMedia) {
     this.email = this.fbService.userStates.email;
     this._ngxZendeskWebwidgetService.identify({
       email: this.email
-     })
-     this._ngxZendeskWebwidgetService.show()
+    })
+    this._ngxZendeskWebwidgetService.show()
   }
 
   ngOnInit() {
-    this.authService.authInfo$.subscribe(authInfo =>  this.authInfo = authInfo);
+    this.authService.authInfo$.subscribe(authInfo => this.authInfo = authInfo);
     // this.fbService.userState$.subscribe(x => {
     //   console.log('xxxxxxxxxxxxxxxxxxx', x);
     //   this.userState = x;
     // })
-    
+
   }
 
   changeView(text) {
-    if(text=="travelReport"){
+
+    if (this.media.isActive('xs')) {
+      if (text == "travelReport") {
         this.router.navigate(['dashboard/travel-report']);
-    } else if (text=="redeem"){
-        this.router.navigate(['dashboard/redeem']);            
-    } else if (text=="spendingReport"){
-        this.router.navigate(['dashboard/spending-report']);            
-    } else if (text=="settings") {
+        this.isHidden = false;
+      } else if (text == "redeem") {
+        this.router.navigate(['dashboard/redeem']);
+        this.isHidden = false;
+      } else if (text == "spendingReport") {
+        this.router.navigate(['dashboard/spending-report']);
+        this.isHidden = false;
+      } else if (text == "settings") {
         this.router.navigate(['dashboard/settings']);
-    } else if (text=="logout") {
+        this.isHidden = false;
+      } else if (text == "logout") {
         this.logout();
+      }
+    } else {
+      if (text == "travelReport") {
+        this.router.navigate(['dashboard/travel-report']);
+      } else if (text == "redeem") {
+        this.router.navigate(['dashboard/redeem']);
+      } else if (text == "spendingReport") {
+        this.router.navigate(['dashboard/spending-report']);
+      } else if (text == "settings") {
+        this.router.navigate(['dashboard/settings']);
+      } else if (text == "logout") {
+        this.logout();
+      }
     }
-}
-
-logout() {
-  this.authService.logout();
-}
-
-}
-export class toggle {
-  isHidden: false;
-  
-  constructor() {
   }
-  
+
+  logout() {
+    this.authService.logout();
+  }
+
 }
+// export class toggle {
+//   isHidden: false;
+
+//   constructor() {
+//   }
+
+// }

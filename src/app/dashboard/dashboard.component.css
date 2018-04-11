@@ -8,6 +8,11 @@
     overflow-x: hidden;
   }
 
+  .container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
   img {
       max-height: 120px;
       padding: 20px;
@@ -48,7 +53,7 @@
   #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
+    padding: 15px 0px 15px 0px;
   }
   
   #wrapper.toggled #page-content-wrapper {
@@ -192,7 +197,7 @@
       width: 250px;
     }
     #page-content-wrapper {
-      padding: 20px;
+      /* padding: 20px; */
       position: relative;
     }
     #wrapper.toggled #page-content-wrapper {
