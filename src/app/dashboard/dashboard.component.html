@@ -1,5 +1,5 @@
 <div class="container-fluid">
-<div id="wrapper" [ngClass]="{'toggled': isHidden }">
+<div id="wrapper" [ngClass.gt-sm]="{'toggled': !isHidden }" [ngClass]="{'toggled': isHidden }">
     <div id="sidebar-wrapper">
         <div class="sidebar-brand">
             <img src="./assets/images/maxPointsLogoNew.png" alt="Max Points">

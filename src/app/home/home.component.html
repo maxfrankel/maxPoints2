@@ -4,16 +4,25 @@
 
 <!-- Start Your Action Plan Tab -->
 <div class="container main">
+
   <div class="col-md-12 text-center" *ngIf="userStates?.reportCreated && !userStates?.callUsed">
     <h2>Schedule Your One-Time Phone Consultation</h2>
     <button type="button" class="btn btn-primary btn-lg" (click)="gotoCalendly()" target="_blank">Schedule Now</button>
-  <hr/>
+    <hr/>
   </div>
+
   <div class="col-md-12 text-center" *ngIf="!userStates?.reportCreated">
     <h2>Your Rewards Goals</h2>
-    <iframe src="https://maxpoints.typeform.com/to/ut6YzL" style="width:100%;height:85vh;" frameborder="0"></iframe>
+    <div fxHide fxShow.gt-sm>
+      <iframe class="travelForm" src="https://maxpoints.typeform.com/to/ut6YzL" frameborder="0"></iframe>
+    </div>
+    <div fxShow fxHide.gt-sm>
+      <a class="btn btn-primary btn-block" href="https://maxpoints.typeform.com/to/ut6YzL" target="_blank">Complete Form</a>
+    </div>
   </div>
+
   <div class="col-md-12" *ngIf="userStates?.reportCreated">
+    <h2>Your Travel Report</h2>
     <div fxHide fxShow.gt-sm>
       <iframe [src]="url" style="width:100%;height:80vh;" frameborder="0"></iframe>
     </div>

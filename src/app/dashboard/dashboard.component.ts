@@ -4,6 +4,7 @@ import {AuthInfo} from "../shared/security/auth-info";
 import {Router} from "@angular/router";
 import { FirbaseService } from 'app/shared/services/firebase.service';
 import { ngxZendeskWebwidgetService } from 'ngx-zendesk-webwidget';
+import {MediaChange, ObservableMedia} from '@angular/flex-layout';
 
 @Component({
   selector: 'dashboard',
@@ -16,7 +17,7 @@ export class DashboardComponent implements OnInit {
     email: '';
     authInfo: AuthInfo;
 
-  constructor(private authService:AuthService, private router:Router, private fbService: FirbaseService, private _ngxZendeskWebwidgetService: ngxZendeskWebwidgetService) {
+  constructor(private authService:AuthService, private router:Router, private fbService: FirbaseService, private _ngxZendeskWebwidgetService: ngxZendeskWebwidgetService, private media: ObservableMedia) {
     this.email = this.fbService.userStates.email;
     this._ngxZendeskWebwidgetService.identify({
       email: this.email

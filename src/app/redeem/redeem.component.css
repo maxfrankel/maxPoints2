@@ -4,26 +4,10 @@ h2 {
 #bookTravel {
     display: inline-block;
     width: 100%;
-    height: 600px;
+    height: 85vh;
     /* width: 800px;
     height: 600px;
     margin: 20px 60px 60px 60px; */
 }
 
-.first {
-        color: red;
-        font-family: fantasy;
-}
-
-.second {
-    color: goldenrod;
-    font-size: 36px;
-}
-
-@media(max-width:600px) {
-    #bookTravel {
-        width: 100%;
-        height: 300px;
-    }
-}
 
