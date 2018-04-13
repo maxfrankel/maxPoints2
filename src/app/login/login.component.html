@@ -18,12 +18,14 @@
                     <label class="form-check-label" for="invalidCheck2">I agree to the
                         <a class="termsOfService" href="https://www.maxpoints.co/terms/" target="_blank">Terms and Conditions</a>
                     </label>
-                    <div class="formErrorMessage text-center" *ngIf="formError"> 
-                        *All fields are required*
-                   </div> 
                 </div>
-                <div class="buttonContainer">
-                    <a class="btn btn-primary btn-block loginButton" (click)="login()">Login</a>
+                <div class="formErrorMessage text-center" *ngIf="formError">
+                    <p style="max-width: 250px; margin: auto;">
+                        {{errorMsg}}
+                    </p>
+                </div> 
+                <div class="buttonContainer mt-4">
+                    <a class="btn btn-primary btn-block loginButton" (click)="validate()">Login</a>
                 </div>
             </div>
             <div class="card-body" *ngIf='!resetEmailSent && resetPasswordClicked'>

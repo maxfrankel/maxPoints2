@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   resetPasswordClicked = false;
   formError = false;
   error = false;
+  errorMsg: string;
   form:FormGroup;
 
   constructor(
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
         private authService: AuthService, 
         private fbService: FirbaseService,
         private router:Router,
-        private _ngxZendeskWebwidgetService: ngxZendeskWebwidgetService
+        private _ngxZendeskWebwidgetService: ngxZendeskWebwidgetService,
+        private data: AuthService
     ) {
       this.form = this.fb.group({
           email: ['',Validators.required],
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.data.currentMessage.subscribe(message => this.errorMsg = message)
   }
 
   // login() {
@@ -53,27 +56,25 @@ export class LoginComponent implements OnInit {
   login() {
 
       const formValue = this.form.value;
-
-      if (this.validate()) {
-        this.authService.login(formValue.email, formValue.password)
-          .subscribe(
-              (u: any) => {
-                  console.log('0a', u.uid);
-                  this.fbService.getUserState(u.uid)
-                  // this.router.navigate(['/dashboard']);                  
-                }
-            
-          );
-
-      } else {
-        console.log('failed email / pw / terms');
-        this.formError = true;
-      }
+      this.authService.login(formValue.email, formValue.password)
+      .subscribe(
+          (u: any) => {
+            console.log('0a', u.uid);
+            this.fbService.getUserState(u.uid)
+            // this.router.navigate(['/dashboard']);                  
+          }
+      );
   }
   
-validate(): boolean {
-  return this.form.value.email.length > 4 && this.form.value.password.length > 4 && this.form.get('terms').value;
-}
+  validate() {
+    if (this.form.value.email.length > 4 && this.form.value.password.length > 4 && this.form.get('terms').value) {
+      this.login();
+    } else {
+      console.log('failed email / pw / terms');
+      this.formError = true;
+      this.errorMsg = '*All fields are required*';
+    }
+  }
 
   resetPassword(ev) {
     ev ? ev.preventDefault() : null;

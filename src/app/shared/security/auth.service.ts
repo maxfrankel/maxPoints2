@@ -13,12 +13,16 @@ export class AuthService {
 
     authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
 
+    private messageSource = new BehaviorSubject<string>("default message");
+    currentMessage = this.messageSource.asObservable();
 
     constructor(private afAuth: AngularFireAuth, private router: Router) {
 
     }
 
-
+    changeMessage(message: string) {
+        this.messageSource.next(message)
+    }
 
 
     login(email, password): Observable<AuthInfo> {
@@ -56,8 +60,10 @@ export class AuthService {
             },
             err => {
                 this.authInfo$.error(err);
+                this.changeMessage(err.message);
                 subject.error(err);
                 subject.complete();
+                console.log()
             });
 
         return subject.asObservable();
