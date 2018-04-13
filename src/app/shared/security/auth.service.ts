@@ -13,7 +13,7 @@ export class AuthService {
 
     authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
 
-    private messageSource = new BehaviorSubject<string>("default message");
+    private messageSource = new BehaviorSubject<string>("");
     currentMessage = this.messageSource.asObservable();
 
     private resetEmailSent = new BehaviorSubject<boolean>(false);
@@ -59,16 +59,17 @@ export class AuthService {
 
         promise
             .then(res => {
-                const authInfo = new AuthInfo(this.afAuth.auth.currentUser.uid);
+                console.log('Here????', res.uid)
+                const authInfo = new AuthInfo(res.uid);
                 this.authInfo$.next(authInfo);
                 subject.next(res);
                 subject.complete();
             },
             err => {
-                this.authInfo$.error(err);
+                // this.authInfo$.error(err);
                 this.changeMessage(err.message);
-                subject.error(err);
-                subject.complete();
+                // subject.error(err);
+                // subject.complete();
                 console.log()
             });
 

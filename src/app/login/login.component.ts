@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
 
   // }
 
-  login() {
-
+  login(ev) {
+      ev ? ev.preventDefault() : null;
       const formValue = this.form.value;
       this.authService.login(formValue.email, formValue.password)
       .subscribe(
@@ -67,9 +67,10 @@ export class LoginComponent implements OnInit {
       );
   }
   
-  validate() {
+  validate(ev) {
+    ev ? ev.preventDefault() : null;
     if (this.form.value.email.length > 4 && this.form.value.password.length > 4 && this.form.get('terms').value) {
-      this.login();
+      this.login(ev);
     } else {
       console.log('failed email / pw / terms');
       this.formError = true;
