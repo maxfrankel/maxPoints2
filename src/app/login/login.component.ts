@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.errorMsg = message)
     this.data.currentResetStatus.subscribe(resetEmailSent => this.resetEmailSent = resetEmailSent)
+    this.errorMsg = ''
   }
 
   // login() {
@@ -69,7 +70,7 @@ export class LoginComponent implements OnInit {
   
   validate(ev) {
     ev ? ev.preventDefault() : null;
-    if (this.form.value.email.length > 4 && this.form.value.password.length > 4 && this.form.get('terms').value) {
+    if (this.form.value.email.length > 0 && this.form.value.password.length > 0 && this.form.get('terms').value) {
       this.login(ev);
     } else {
       console.log('failed email / pw / terms');
