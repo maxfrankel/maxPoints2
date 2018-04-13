@@ -11,7 +11,7 @@ import { ngxZendeskWebwidgetService } from 'ngx-zendesk-webwidget';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  resetEmailSent = false;
+  resetEmailSent: boolean = false;
   resetPasswordClicked = false;
   formError = false;
   error = false;
@@ -30,13 +30,14 @@ export class LoginComponent implements OnInit {
           email: ['',Validators.required],
           password: ['',Validators.required],
           terms: ['', Validators.required]
-    });
+      });
 
-    this._ngxZendeskWebwidgetService.show();
+      this._ngxZendeskWebwidgetService.show();
   }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.errorMsg = message)
+    this.data.currentResetStatus.subscribe(resetEmailSent => this.resetEmailSent = resetEmailSent)
   }
 
   // login() {
@@ -81,20 +82,27 @@ export class LoginComponent implements OnInit {
     const formValue = this.form.value;
     if (formValue.email) {
         this.authService.resetPassword(formValue.email)
-        .then(res => {
-          this.resetEmailSent = true
-        }).catch(err => {
-            console.log(err);
-        });
     } else {
-      this.error = true;
-        // this.ts.call('Please type your email address');
+      this.errorMsg = 'Please input your email address.';
     }
 
 }
   
   showPasswordReset () {
-    this.resetPasswordClicked = true
+    if (this.resetPasswordClicked) {
+      this.resetPasswordClicked = false;
+      this.resetEmailSent = false;
+      this.errorMsg = '';
+      this.form = this.fb.group({
+        email: ['',Validators.required],
+        password: ['',Validators.required],
+        terms: ['', Validators.required]
+      });
+    } else {
+      this.resetPasswordClicked = true;
+      this.resetEmailSent = false;
+      this.errorMsg = '';
+    }
   }
 
 }

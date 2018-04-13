@@ -16,14 +16,20 @@ export class AuthService {
     private messageSource = new BehaviorSubject<string>("default message");
     currentMessage = this.messageSource.asObservable();
 
+    private resetEmailSent = new BehaviorSubject<boolean>(false);
+    currentResetStatus = this.resetEmailSent.asObservable();
+
     constructor(private afAuth: AngularFireAuth, private router: Router) {
 
     }
 
     changeMessage(message: string) {
-        this.messageSource.next(message)
+        this.messageSource.next(message);
     }
 
+    changeResetStatus(status: boolean) {
+        this.resetEmailSent.next(status);
+    }
 
     login(email, password): Observable<AuthInfo> {
         return this.fromFirebaseAuthPromise(this.afAuth.auth.signInWithEmailAndPassword(email, password));
@@ -32,8 +38,8 @@ export class AuthService {
     resetPassword(email: string) {
         var auth = firebase.auth();
         return auth.sendPasswordResetEmail(email)
-            .then(() => console.log("email sent"))
-            .catch((error) => console.log(error))
+            .then(() => this.changeResetStatus(true))
+            .catch((error) => this.changeMessage(error.message))
     }
 
     signUp(email, password) {

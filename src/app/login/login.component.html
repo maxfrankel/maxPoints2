@@ -32,10 +32,12 @@
                 <div class="form-group text-center">
                     <input class="form-control" name="email" placeholder="Email" formControlName="email">
                 </div>
-                <div *ngIf='!resetEmailSent && resetPasswordClicked && error'>
-                    <p>Please input an email address</p>
+                <div class="formErrorMessage text-center" *ngIf='!resetEmailSent && resetPasswordClicked && errorMsg'>
+                    <p style="max-width: 250px; margin: auto;">
+                        {{errorMsg}}
+                    </p>
                 </div>
-                <div class="buttonContainer">
+                <div class="buttonContainer mt-4">
                     <a class="btn btn-primary btn-block" (click)="resetPassword()">Reset Password</a>
                 </div>
             </div>
@@ -44,7 +46,8 @@
             </div>
             <div class="card-footer d-flex justify-content-between">
                 <div class="footer1">
-                    <span class="forgotPassword" *ngIf='!resetEmailSent' (click)="showPasswordReset()">Forgot Password</span>
+                    <span class="forgotPassword" *ngIf='!resetPasswordClicked' (click)="showPasswordReset()">Forgot Password</span>
+                    <span class="forgotPassword" *ngIf='resetPasswordClicked' (click)="showPasswordReset()">Login</span>
                 </div>
                 <!-- <div class="footer1">
                     <span class="forgotPassword" type="link" href="mailto:max@maxpoints.co?Subject=Question%20about%20Max%20Points">Contact Us</span>
