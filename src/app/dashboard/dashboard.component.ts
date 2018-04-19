@@ -39,17 +39,25 @@ export class DashboardComponent implements OnInit {
 
     if (this.media.isActive('xs')) {
       if (text == "travelReport") {
+        setTimeout(() => {
+          this.isHidden = false;
+        }, 500)
         this.router.navigate(['dashboard/travel-report']);
-        this.isHidden = false;
       } else if (text == "redeem") {
+        setTimeout(() => {
+          this.isHidden = false;
+        }, 500)
         this.router.navigate(['dashboard/redeem']);
-        this.isHidden = false;
       } else if (text == "spendingReport") {
+        setTimeout(() => {
+          this.isHidden = false;
+        }, 500)
         this.router.navigate(['dashboard/spending-report']);
-        this.isHidden = false;
       } else if (text == "settings") {
+        setTimeout(() => {
+          this.isHidden = false;
+        }, 500)
         this.router.navigate(['dashboard/settings']);
-        this.isHidden = false;
       } else if (text == "logout") {
         this.logout();
       }
