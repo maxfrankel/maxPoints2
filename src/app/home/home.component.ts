@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.url = this.photoUrl();
+    // this.url = this.photoUrl();
     this.urlString = this.userStates.report;
     console.log(this.url)
   }
