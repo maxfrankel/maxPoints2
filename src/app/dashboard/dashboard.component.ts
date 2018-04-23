@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   email: '';
   authInfo: AuthInfo;
   isHidden: boolean = false;
-  isCollapsed: boolean = false;
+  isCollapsed: boolean = true;
 
 
   constructor(private authService: AuthService, private router: Router, private fbService: FirbaseService, private _ngxZendeskWebwidgetService: ngxZendeskWebwidgetService, private media: ObservableMedia) {
