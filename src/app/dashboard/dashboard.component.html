@@ -14,6 +14,27 @@
                 <li (click)="changeView('settings')">
                     <a>Settings</a>
                 </li>
+                <li>
+                    <div>
+                        <a (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">Pages
+                            <i class="material-icons arrows" *ngIf="isCollapsed">keyboard_arrow_up</i>
+                            <i class="material-icons arrows" *ngIf="!isCollapsed">keyboard_arrow_down</i>
+                        </a>
+                    </div>
+                    <div>
+                        <ul id="collapseExample" [ngbCollapse]="isCollapsed">
+                            <li>
+                                <a href="#">Page</a>
+                            </li>
+                            <li>
+                                <a href="#">Page</a>
+                            </li>
+                            <li>
+                                <a href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li (click)="changeView('logout')">
                     <a>Logout</a>
                 </li>
